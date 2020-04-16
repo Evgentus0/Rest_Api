@@ -20,7 +20,6 @@ export class Lab2Component implements OnInit {
   }
 
   find(){
-    console.log("sdsdsdsd");
     this.service.findResult(this.data.data).subscribe((key:string)=>{
       this.service.getResult(key).subscribe((data:string)=>{
         this.result = data;

@@ -38,7 +38,6 @@ export class Lab1Component implements OnInit {
     this.service.findResult2(this.data.part2).subscribe((key:string)=>{
       this.service.getResult2(key).subscribe((data:string)=>{
         this.result2 = data;
-        console.log(data);
       },
       error=>console.log(error))
     },
