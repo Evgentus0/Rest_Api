@@ -1,0 +1,17 @@
+<div class="container main">
+    <div>
+        <h3>Part 1</h3>
+        <label for="input_1">Enter the list: </label>
+        <input id="input_1" class="form-control" placeholder="Enter numbers..." [(ngModel)]="data.part1">
+        <button type="button" class="btn btn-primary" (click)="findResult1()">Find result</button>
+        <p><span>Result: {{result1}}</span></p>
+    </div>
+    <br>
+    <div>
+        <h3>Part 2</h3>
+        <label for="input_2">Enter the list: </label>
+        <input id="input_2" class="form-control" placeholder="Enter numbers..." [(ngModel)]="data.part2">
+        <button type="button" class="btn btn-primary" (click)="findResult2()">Find result</button>
+        <p><span>Result: {{result2}}</span></p>
+    </div>
+</div>

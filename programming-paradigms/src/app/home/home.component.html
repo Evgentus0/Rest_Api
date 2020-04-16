@@ -1,0 +1,8 @@
+<div class="container main">
+    <h2>My works!</h2>
+    <ul>
+        <li *ngFor="let lab of labs">
+            <a routerLink="{{lab.link}}"><div>{{lab.name}}</div></a>
+        </li>
+    </ul>
+</div>
