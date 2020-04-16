@@ -42,7 +42,7 @@ namespace ProgrammingParadigms_BLL.Implementation
                 throw new ArgumentException("Input is empty!");
             }
 
-            var numbers = input.Split(',', ';').Where(x => !string.IsNullOrEmpty(x));
+            var numbers = input.Split(',', ';').Where(x => !string.IsNullOrWhiteSpace(x));
 
             if (numbers.All(x => int.TryParse(x, out int res)))
             {
