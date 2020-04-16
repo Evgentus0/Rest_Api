@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrmmingParadigms", "ProgrmmingParadigms\ProgrmmingParadigms.csproj", "{ECD1A9F6-2E59-4749-B907-62F17D53D54B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgrmmingParadigms", "ProgrmmingParadigms\ProgrmmingParadigms.csproj", "{ECD1A9F6-2E59-4749-B907-62F17D53D54B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgrammingParadigms_BLL", "ProgrammingParadigms_BLL\ProgrammingParadigms_BLL.csproj", "{27CA7ABC-A0C4-44F6-887C-988CA9A211F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgrammingParadigms_BLL", "ProgrammingParadigms_BLL\ProgrammingParadigms_BLL.csproj", "{27CA7ABC-A0C4-44F6-887C-988CA9A211F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{09DBF9DE-6888-4DF6-BBF7-3BE8A4EB84A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{27CA7ABC-A0C4-44F6-887C-988CA9A211F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27CA7ABC-A0C4-44F6-887C-988CA9A211F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27CA7ABC-A0C4-44F6-887C-988CA9A211F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09DBF9DE-6888-4DF6-BBF7-3BE8A4EB84A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09DBF9DE-6888-4DF6-BBF7-3BE8A4EB84A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09DBF9DE-6888-4DF6-BBF7-3BE8A4EB84A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09DBF9DE-6888-4DF6-BBF7-3BE8A4EB84A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
