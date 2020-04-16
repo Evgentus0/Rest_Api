@@ -44,6 +44,7 @@ namespace ProgrmmingParadigms
         private void ConfigureIoC(IServiceCollection services)
         {
             services.AddScoped<ILab1_BL, Lab1_BL>();
+            services.AddScoped<ILab2_BL, Lab2_BL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

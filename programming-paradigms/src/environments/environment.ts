@@ -10,6 +10,10 @@ export const environment = {
     getResult1:prefix+"lab1/get1",
     findResult2: prefix+"lab1/find2",
     getResult2:prefix+"lab1/get2"
+  },
+  lab2:{
+    findResult:prefix+"lab2/find",
+    getResult:prefix+"lab2/get"
   }
 };
 

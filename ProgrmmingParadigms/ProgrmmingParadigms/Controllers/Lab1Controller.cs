@@ -16,8 +16,8 @@ namespace ProgrmmingParadigms.Controllers
     [ApiController]
     public class Lab1Controller : ControllerBase
     {
-        ILab1_BL _worker;
-        static Dictionary<string, string> _tempValues = new Dictionary<string, string>();
+        private ILab1_BL _worker;
+        private static Dictionary<string, string> _tempValues = new Dictionary<string, string>();
 
         public Lab1Controller(ILab1_BL worker)
         {
