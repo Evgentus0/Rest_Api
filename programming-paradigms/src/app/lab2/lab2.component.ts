@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { lab2 } from '../shared/models/lab2';
+import { Lab2 } from '../shared/models/lab2';
 import { Lab2Service } from '../shared/services/lab2.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { Lab2Service } from '../shared/services/lab2.service';
   styleUrls: ['./lab2.component.css']
 })
 export class Lab2Component implements OnInit {
-  data:lab2 = new lab2();
+  data:Lab2 = new Lab2();
   result:string;
   title:string;
 

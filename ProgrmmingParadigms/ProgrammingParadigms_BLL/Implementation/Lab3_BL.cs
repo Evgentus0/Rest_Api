@@ -4,15 +4,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ProgrammingParadigms_BLL.Implementation
 {
     public class Lab3_BL : ILab3_BL
     {
-        private Automat automat;
+        private AutomatDTO automat;
         private int length;
 
-        public string GetResult(Automat automat, int length)
+        public async Task<string> GetResultAsync(AutomatDTO automat, int length)
+        {
+            return await Task.Run(() => GetResult(automat, length));
+        }
+
+        public string GetResult(AutomatDTO automat, int length)
         {
             this.automat = automat;
             this.length = length;

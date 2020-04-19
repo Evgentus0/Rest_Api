@@ -1,0 +1,90 @@
+<div class="container main">
+    <h3>{{title}}</h3>
+    <!-- <label for="states">Enter the list of states: </label>
+    <input id="states" class="form-control" placeholder="Enter numbers..." >
+    <label for="startState">Enter the start state: </label>
+    <input id="startState" class="form-control" placeholder="Enter number..." >
+    <label for="finalStates">Enter the list of final states: </label>
+    <input id="finalStates" class="form-control" placeholder="Enter numbers..." >
+    <span>
+        To add transition please click
+    </span>
+    <button type="button" class="btn btn-info" (click)="addTransition()"><b>+</b></button>
+    <p>
+        <span>
+            To delete : 
+        </span>
+        <button type="button" class="btn btn-info" (click)="deleteTransition()"><b>-</b></button>
+    </p>
+    <div *ngFor="let t of transition">
+        <input  class="form-control transition" placeholder="Enter transition...">
+    </div>
+    <br>
+    <button type="button" class="btn btn-primary" (click) = "findResult()">Find result</button>
+    <p><span>Result: {{result}}</span></p> -->
+
+
+    <form [formGroup]="myForm" novalidate >
+        <div class="form-group">
+            <label>Length</label>
+            <input class="form-control" name="length" formControlName="Length" />
+             
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['Length'].invalid && myForm.controls['Length'].touched">
+                Length is empty!
+            </div>
+        </div>
+        <div class="form-group">
+            <label>States</label>
+            <input class="form-control" name="states" formControlName="States" />
+             
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['States'].invalid && myForm.controls['States'].touched">
+                States is empty!
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Start state</label>
+            <input class="form-control" name="startState" formControlName="StartState" />
+             
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['StartState'].invalid && myForm.controls['StartState'].touched">
+                Start state is empty!
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Final states</label>
+            <input class="form-control" name="finalStates" formControlName="FinalStates" />
+             
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['FinalStates'].invalid && myForm.controls['FinalStates'].touched">
+                Final states is empty!
+            </div>
+        </div>
+        <Label>Transitions</Label>
+        <div formArrayName="Transitions">
+            <div class="form-group" *ngFor="let transition of myForm.controls['Transitions']['controls']; let i = index">
+                <label style="font-size: 0.8em;">Transition</label>
+                <input class="form-control" formControlName="{{i}}" />
+
+                <div class="alert alert-danger"
+                    *ngIf="myForm.controls['Transitions']['controls'][i].invalid && myForm.controls['Transitions']['controls'][i].touched">
+                        Transition states is empty!
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info transitionButtons" (click)="addTransition()">
+                Add transition
+            </button>
+            <button class="btn btn-info transitionButtons" (click)="deleteTransition()">
+                Delete transition
+            </button>
+            <br>
+            <button class="btn btn-primary" [disabled]="myForm.invalid" (click)="findResult()">
+                Отправить
+            </button>
+        </div>
+    </form>
+    <div>Result: {{result}}</div>
+</div>

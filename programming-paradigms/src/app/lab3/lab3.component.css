@@ -1,0 +1,14 @@
+.main{
+    padding: 5px;
+    font-size: 1.5em;
+}
+
+.transition{
+    margin: 3px;
+}
+
+.transitionButtons{
+    margin:5px;
+    margin-left: 0;
+    font-size: 0.6em;
+}

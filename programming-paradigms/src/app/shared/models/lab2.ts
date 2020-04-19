@@ -1,3 +1,3 @@
-export class lab2{
+export class Lab2{
     data:string;
 }

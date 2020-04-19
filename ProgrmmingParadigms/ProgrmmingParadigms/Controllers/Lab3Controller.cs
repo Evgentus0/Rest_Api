@@ -12,23 +12,27 @@ namespace ProgrmmingParadigms.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Lab2Controller : ControllerBase
+    public class Lab3Controller : ControllerBase
     {
-        private ILab2_BL _worker;
+        private ILab3_BL _worker;
         private static Dictionary<string, string> _tempValues = new Dictionary<string, string>();
+        private Mapper _mapper;
 
-        public Lab2Controller(ILab2_BL worker)
+        public Lab3Controller(ILab3_BL worker)
         {
             _worker = worker;
+            _mapper = new Mapper();
         }
 
         [HttpPost]
         [Route("find")]
-        public async Task<ActionResult<string>> FindResult([FromBody] Lab2 list)
+        public async Task<ActionResult<string>> FindResult([FromBody] Lab3 model)
         {
             try
             {
-                var result = await _worker.GetResultAsync(list.Data);
+                var automat = _mapper.GetAutomatDTO(model.Automat);
+
+                var result = await _worker.GetResultAsync(automat, model.Length);
                 var key = KeyGenerator.RandomString();
 
                 while (_tempValues.ContainsKey(key))

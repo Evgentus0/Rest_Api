@@ -4,14 +4,14 @@ using System.Text;
 
 namespace ProgrammingParadigms_BLL.DTO
 {
-    public class Automat
+    public class AutomatDTO
     {
         public List<int> States { get; private set; }
-        public List<Transition> Transitions { get; private set; }
+        public List<TransitionDTO> Transitions { get; private set; }
         public int StartState { get; private set; }
         public List<int> FinalStates { get; private set; }
 
-        public Automat(List<int> states, List<Transition> transitions, int startState, List<int> finalStates)
+        public AutomatDTO(List<int> states, List<TransitionDTO> transitions, int startState, List<int> finalStates)
         {
             States = states;
             Transitions = transitions;
@@ -20,12 +20,12 @@ namespace ProgrammingParadigms_BLL.DTO
         }
     }
 
-    public struct Transition
+    public struct TransitionDTO
     {
         public int prevState;
         public int nextState;
         public char symbol;
-        public Transition(int prevState, char symbol, int nextState)
+        public TransitionDTO(int prevState, char symbol, int nextState)
         {
             this.prevState = prevState;
             this.nextState = nextState;

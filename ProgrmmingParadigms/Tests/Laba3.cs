@@ -25,16 +25,16 @@ namespace Tests
             List<int> states = new List<int>() { 1, 2, 3, 4 };
             int startState = 1;
             List<int> finalStates = new List<int>() { 4 };
-            List<Transition> transitions = new List<Transition>()
+            List<TransitionDTO> transitions = new List<TransitionDTO>()
             {
-                new Transition(1, 'a', 2),
-                new Transition(1, 'b', 3),
-                new Transition(2, 'a', 4),
-                new Transition(2, 'b', 2),
-                new Transition(3, 'b', 4),
-                new Transition(3, 'a', 3)
+                new TransitionDTO(1, 'a', 2),
+                new TransitionDTO(1, 'b', 3),
+                new TransitionDTO(2, 'a', 4),
+                new TransitionDTO(2, 'b', 2),
+                new TransitionDTO(3, 'b', 4),
+                new TransitionDTO(3, 'a', 3)
             };
-            Automat automat = new Automat(states, transitions, startState, finalStates);
+            AutomatDTO automat = new AutomatDTO(states, transitions, startState, finalStates);
 
             //act
             string res = _worker.GetResult(automat, length);
@@ -63,18 +63,18 @@ namespace Tests
             List<int> states = new List<int>() { 1, 2, 3, 4 };
             int startState = 1;
             List<int> finalStates = new List<int>() { 4 };
-            List<Transition> transitions = new List<Transition>()
+            List<TransitionDTO> transitions = new List<TransitionDTO>()
             {
-                new Transition(1, 'a', 2),
-                new Transition(1, 'b', 3),
-                new Transition(2, 'a', 4),
-                new Transition(2, 'b', 2),
-                new Transition(3, 'b', 4),
-                new Transition(3, 'a', 3),
-                new Transition(4, 'a', 4),
-                new Transition(4, 'b', 4)
+                new TransitionDTO(1, 'a', 2),
+                new TransitionDTO(1, 'b', 3),
+                new TransitionDTO(2, 'a', 4),
+                new TransitionDTO(2, 'b', 2),
+                new TransitionDTO(3, 'b', 4),
+                new TransitionDTO(3, 'a', 3),
+                new TransitionDTO(4, 'a', 4),
+                new TransitionDTO(4, 'b', 4)
             };
-            Automat automat = new Automat(states, transitions, startState, finalStates);
+            AutomatDTO automat = new AutomatDTO(states, transitions, startState, finalStates);
 
             //act
             string res = _worker.GetResult(automat, length);
@@ -95,19 +95,19 @@ namespace Tests
             List<int> states = new List<int>() { 1, 2, 3, 4 };
             int startState = 1;
             List<int> finalStates = new List<int>() { 4 };
-            List<Transition> transitions = new List<Transition>()
+            List<TransitionDTO> transitions = new List<TransitionDTO>()
             {
-                new Transition(1, 'a', 2),
-                new Transition(1, 'b', 3),
-                new Transition(2, 'a', 4),
-                new Transition(2, 'b', 2),
-                new Transition(3, 'b', 4),
-                new Transition(3, 'a', 3),
-                new Transition(4, 'a', 2),
-                new Transition(4, 'b', 4),
+                new TransitionDTO(1, 'a', 2),
+                new TransitionDTO(1, 'b', 3),
+                new TransitionDTO(2, 'a', 4),
+                new TransitionDTO(2, 'b', 2),
+                new TransitionDTO(3, 'b', 4),
+                new TransitionDTO(3, 'a', 3),
+                new TransitionDTO(4, 'a', 2),
+                new TransitionDTO(4, 'b', 4),
 
             };
-            Automat automat = new Automat(states, transitions, startState, finalStates);
+            AutomatDTO automat = new AutomatDTO(states, transitions, startState, finalStates);
 
             //act
             string res = _worker.GetResult(automat, length);

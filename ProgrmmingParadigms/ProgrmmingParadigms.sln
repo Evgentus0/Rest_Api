@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgrmmingParadigms", "Prog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgrammingParadigms_BLL", "ProgrammingParadigms_BLL\ProgrammingParadigms_BLL.csproj", "{27CA7ABC-A0C4-44F6-887C-988CA9A211F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{09DBF9DE-6888-4DF6-BBF7-3BE8A4EB84A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "Tests\UnitTests.csproj", "{09DBF9DE-6888-4DF6-BBF7-3BE8A4EB84A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
