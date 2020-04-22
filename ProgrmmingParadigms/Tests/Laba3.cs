@@ -4,9 +4,9 @@ using ProgrammingParadigms_BLL.Implementation;
 using ProgrammingParadigms_BLL.Interfaces;
 using System.Collections.Generic;
 
-namespace Tests
+namespace UnitTests
 {
-    public class Tests
+    public class Laba3
     {
         ILab3_BL _worker;
 
