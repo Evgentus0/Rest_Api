@@ -1,0 +1,69 @@
+<div class="container main">
+    <h3>{{title}}</h3>
+
+    <form [formGroup]="myForm" novalidate>
+        <div class="form-group">
+            <label>Non Terminals</label>
+            <input class="form-control" name="nonTerminals" formControlName="NonTerminals" />
+             
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['NonTerminals'].invalid && myForm.controls['NonTerminals'].touched">
+                Non Terminals is empty!
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Terminals</label>
+            <input class="form-control" name="terminals" formControlName="Terminals" />
+             
+            <div class="alert alert-danger"
+                *ngIf="myForm.controls['Terminals'].invalid && myForm.controls['Terminals'].touched">
+                Terminals is empty!
+            </div>
+        </div>
+        <Label>Rules</Label>
+        <div formArrayName="Rules">
+            <div class="form-group" *ngFor="let rule of myForm.controls['Rules']['controls']; let i = index">
+                <label style="font-size: 0.8em;">Rule</label>
+                <input class="form-control" formControlName="{{i}}" />
+    
+                <div class="alert alert-danger"
+                    *ngIf="myForm.controls['Rules']['controls'][i].invalid && myForm.controls['Rules']['controls'][i].touched">
+                    Rule states is empty!
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-info ruleButtons" (click)="addRule()">
+                Add rule
+            </button>
+            <button class="btn btn-info ruleButtons" (click)="deleteRule()">
+                Delete rule
+            </button>
+            <br>
+            <button class="btn btn-primary" [disabled]="myForm.invalid" (click)="findResult()">
+                Find Result
+            </button>
+            <br>
+            <button class="btn btn-primary" [disabled]="myForm.invalid" (click)="findResultWithDetails()">
+                Find Result With Details
+            </button>
+        </div>
+    </form>
+    <div>
+        <span>Result: {{result}}</span>
+        <div *ngIf = "showingDetails">
+            <span>Details:</span>
+            <div *ngFor="let detail of resultWithDetails.details" >
+                <div class="details">
+                <span>NonTerminal: {{detail.nonTerminal}}</span>
+                <br>
+                <span>Follow: {{detail.follow}}</span>
+                <br>
+                <span>First for every rule for current NonTerminals</span>
+                <br>
+                <span *ngFor="let f of detail.firsts">{{f}}; </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

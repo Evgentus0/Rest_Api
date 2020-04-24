@@ -13,6 +13,8 @@ import { Lab2Component } from './lab2/lab2.component';
 import { Lab2Service } from './shared/services/lab2.service';
 import { Lab3Component } from './lab3/lab3.component';
 import { Lab3Service } from './shared/services/lab3.service';
+import { Lab4Component } from './lab4/lab4.component';
+import { Lab4Service } from './shared/services/lab4.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { Lab3Service } from './shared/services/lab3.service';
     Lab1Component,
     AboutMeComponent,
     Lab2Component,
-    Lab3Component
+    Lab3Component,
+    Lab4Component
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { Lab3Service } from './shared/services/lab3.service';
   providers: [
     Lab1Service,
     Lab2Service,
-    Lab3Service
+    Lab3Service,
+    Lab4Service
   ],
   bootstrap: [AppComponent]
 })

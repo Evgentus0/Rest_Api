@@ -1,0 +1,21 @@
+.main{
+    padding: 5px;
+    font-size: 1.5em;
+}
+
+.ruleButtons{
+    margin:5px;
+    margin-left: 0;
+    font-size: 0.6em;
+}
+
+.details{
+    font-size: 0.85em;
+    margin-bottom: 2%;
+    padding: 2%;
+    border: 2px groove rgb(136, 136, 136);
+    border-radius: 10%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -khtml-border-radius: 10px;  
+}

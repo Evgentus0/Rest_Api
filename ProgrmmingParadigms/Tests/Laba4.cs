@@ -4,6 +4,7 @@ using ProgrammingParadigms_BLL.Implementation;
 using ProgrammingParadigms_BLL.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace UnitTests
@@ -21,6 +22,10 @@ namespace UnitTests
         [Test]
         public void Test1()
         {
+            string t = " S   ";
+            t = t.Trim();
+
+
             //arrange
             List<string> nonTerminals = new List<string>()
             {
@@ -32,14 +37,14 @@ namespace UnitTests
                 "a", "b", "d"
             };
 
-            List<Rule> rules = new List<Rule>()
+            List<RuleDTO> rules = new List<RuleDTO>()
             {
-                new Rule(){LeftPart = "S", RightPart="X"},
-                new Rule(){LeftPart = "S", RightPart = "Y"},
-                new Rule(){LeftPart = "X", RightPart = "aXab"},
-                new Rule(){LeftPart = "X", RightPart = "ab"},
-                new Rule(){LeftPart = "Y", RightPart = "aYd"},
-                new Rule(){LeftPart = "Y", RightPart = "b"},
+                new RuleDTO(){LeftPart = "S", RightPart="X"},
+                new RuleDTO(){LeftPart = "S", RightPart = "Y"},
+                new RuleDTO(){LeftPart = "X", RightPart = "aXab"},
+                new RuleDTO(){LeftPart = "X", RightPart = "ab"},
+                new RuleDTO(){LeftPart = "Y", RightPart = "aYd"},
+                new RuleDTO(){LeftPart = "Y", RightPart = "b"},
             };
 
             GrammarDTO grammar = new GrammarDTO()
@@ -70,16 +75,16 @@ namespace UnitTests
                 "+", "*", "(", ")", "c"
             };
 
-            List<Rule> rules = new List<Rule>()
+            List<RuleDTO> rules = new List<RuleDTO>()
             {
-                new Rule(){LeftPart = "S", RightPart="TK"},
-                new Rule(){LeftPart = "K", RightPart = "+TK"},
-                new Rule(){LeftPart = "K", RightPart = "e"},
-                new Rule(){LeftPart = "T", RightPart = "ML"},
-                new Rule(){LeftPart = "L", RightPart = "*MT"},
-                new Rule(){LeftPart = "L", RightPart = "e"},
-                new Rule(){LeftPart = "M", RightPart = "(S)"},
-                new Rule(){LeftPart = "M", RightPart = "c"},
+                new RuleDTO(){LeftPart = "S", RightPart="TK"},
+                new RuleDTO(){LeftPart = "K", RightPart = "+TK"},
+                new RuleDTO(){LeftPart = "K", RightPart = "e"},
+                new RuleDTO(){LeftPart = "T", RightPart = "ML"},
+                new RuleDTO(){LeftPart = "L", RightPart = "*MT"},
+                new RuleDTO(){LeftPart = "L", RightPart = "e"},
+                new RuleDTO(){LeftPart = "M", RightPart = "(S)"},
+                new RuleDTO(){LeftPart = "M", RightPart = "c"},
             };
 
             GrammarDTO grammar = new GrammarDTO()
@@ -94,6 +99,50 @@ namespace UnitTests
 
             //assert
             Assert.AreEqual(res, true);
+        }
+
+        [Test]
+        public void Test2WithDetails()
+        {
+            //arrange
+            List<string> nonTerminals = new List<string>()
+            {
+                "S", "T", "K", "M", "L"
+            };
+
+            List<string> terminals = new List<string>()
+            {
+                "+", "*", "(", ")", "c"
+            };
+
+            List<RuleDTO> rules = new List<RuleDTO>()
+            {
+                new RuleDTO(){LeftPart = "S", RightPart="TK"},
+                new RuleDTO(){LeftPart = "K", RightPart = "+TK"},
+                new RuleDTO(){LeftPart = "K", RightPart = "e"},
+                new RuleDTO(){LeftPart = "T", RightPart = "ML"},
+                new RuleDTO(){LeftPart = "L", RightPart = "*MT"},
+                new RuleDTO(){LeftPart = "L", RightPart = "e"},
+                new RuleDTO(){LeftPart = "M", RightPart = "(S)"},
+                new RuleDTO(){LeftPart = "M", RightPart = "c"},
+            };
+
+            GrammarDTO grammar = new GrammarDTO()
+            {
+                NonTerminals = nonTerminals,
+                Terminals = terminals,
+                Rules = rules
+            };
+
+            //act
+            var res = _worker.CheckForLL1WithDetails(grammar);
+
+            //assert
+            Assert.AreEqual(res.isLL1, true);
+
+            Assert.AreEqual(res.details[0].nonTerminal, "S");
+            Assert.AreEqual(res.details[0].firsts[0].OrderBy(x=>x), "(c");
+            Assert.AreEqual(res.details[0].follow.OrderBy(x => x), ")");
         }
     }
 }

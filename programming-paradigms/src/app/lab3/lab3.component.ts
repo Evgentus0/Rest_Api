@@ -13,7 +13,6 @@ import { Lab3Service } from '../shared/services/lab3.service';
 export class Lab3Component implements OnInit {
   title:string;
   result:string;
-  automat:Automat = new Automat();
 
   myForm : FormGroup;
   constructor(private service:Lab3Service) { }
@@ -55,7 +54,13 @@ export class Lab3Component implements OnInit {
     this.service.findResult(automat, length).subscribe((key:string)=>{
       this.service.getResult(key).subscribe((data:string)=>{
         this.result = data;
-      })
+      },
+      error=>console.error(error)
+      )
+    },
+    error=>{
+      console.error(error);
+      this.result = error["error"];
     })
   }
 

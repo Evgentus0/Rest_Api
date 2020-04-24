@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ProgrammingParadigms_BLL.DTO
+namespace ProgrmmingParadigms.Models
 {
-    public class GrammarDTO
+    public class Grammar
     {
         public IEnumerable<string> NonTerminals { get; set; }
-        public IEnumerable<string> Terminals { get; set; } 
-        public IEnumerable<RuleDTO> Rules { get; set; }
+        public IEnumerable<string> Terminals { get; set; }
+        public IEnumerable<Rule> Rules { get; set; }
     }
 
-    public class RuleDTO
+    public class Rule
     {
         public string LeftPart { get; set; }
         public string RightPart { get; set; }
@@ -21,4 +22,5 @@ namespace ProgrammingParadigms_BLL.DTO
             return $"{LeftPart} -> {RightPart}";
         }
     }
+
 }

@@ -1,29 +1,5 @@
 <div class="container main">
     <h3>{{title}}</h3>
-    <!-- <label for="states">Enter the list of states: </label>
-    <input id="states" class="form-control" placeholder="Enter numbers..." >
-    <label for="startState">Enter the start state: </label>
-    <input id="startState" class="form-control" placeholder="Enter number..." >
-    <label for="finalStates">Enter the list of final states: </label>
-    <input id="finalStates" class="form-control" placeholder="Enter numbers..." >
-    <span>
-        To add transition please click
-    </span>
-    <button type="button" class="btn btn-info" (click)="addTransition()"><b>+</b></button>
-    <p>
-        <span>
-            To delete : 
-        </span>
-        <button type="button" class="btn btn-info" (click)="deleteTransition()"><b>-</b></button>
-    </p>
-    <div *ngFor="let t of transition">
-        <input  class="form-control transition" placeholder="Enter transition...">
-    </div>
-    <br>
-    <button type="button" class="btn btn-primary" (click) = "findResult()">Find result</button>
-    <p><span>Result: {{result}}</span></p> -->
-
-
     <form [formGroup]="myForm" novalidate >
         <div class="form-group">
             <label>Length</label>

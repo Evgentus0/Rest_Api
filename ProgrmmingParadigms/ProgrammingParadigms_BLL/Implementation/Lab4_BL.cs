@@ -16,6 +16,7 @@ namespace ProgrammingParadigms_BLL.Implementation
 
         public async Task<bool> CheckForLL1Async(GrammarDTO grammar)
         {
+            _grammar = grammar;
             return await Task.Run(() => CheckForLL1(grammar));
         }
         public bool CheckForLL1(GrammarDTO grammar)
@@ -36,13 +37,35 @@ namespace ProgrammingParadigms_BLL.Implementation
             return isLL1;
         }
 
-        public Task<(string first, string follow, bool isLL1)> CheckForLL1WithDetailsAsync(GrammarDTO grammar)
+        public async Task<(List<(string nonTerminal, List<string> firsts, string follow)> details, bool isLL1)> CheckForLL1WithDetailsAsync(GrammarDTO grammar)
         {
-            throw new NotImplementedException();
+            _grammar = grammar;
+            return await Task.Run(() => CheckForLL1WithDetails(grammar));
         }
-        public (string first, string follow, bool isLL1) CheckForLL1WithDetails(GrammarDTO grammar)
+        public (List<(string nonTerminal, List<string> firsts, string follow)> details, bool isLL1) CheckForLL1WithDetails(GrammarDTO grammar)
         {
-            throw new NotImplementedException();
+            _grammar = grammar;
+
+            List<(string nonTerminal, List<string> firsts, string follow)> details = new List<(string nonTerminal, List<string> firsts, string follow)>();
+
+            foreach (var t in _grammar.NonTerminals)
+            {
+
+                var firsts = new List<string>();
+                var rules = _grammar.Rules.Where(x => x.LeftPart == t).Select(x => x.RightPart);
+
+                foreach(var r in rules)
+                {
+                    firsts.Add(GetFirstForRule(r).Aggregate((x, y) => x + y));
+                }
+
+                var follow = GetFollow(t).Count()==0?"": GetFollow(t).Aggregate((x, y) => x + y);
+
+                details.Add((t, firsts, follow));
+            }
+            bool isLL1 = CheckForLL1(grammar);
+
+            return (details, isLL1);
         }
 
 
@@ -169,7 +192,7 @@ namespace ProgrammingParadigms_BLL.Implementation
 
             return result;
         }
-        private IEnumerable<string> GetFollowInRule(string nonTerminal, Rule rule, ICollection<string> checkedNonTerminals)
+        private IEnumerable<string> GetFollowInRule(string nonTerminal, RuleDTO rule, ICollection<string> checkedNonTerminals)
         {
             List<string> result = new List<string>();
 

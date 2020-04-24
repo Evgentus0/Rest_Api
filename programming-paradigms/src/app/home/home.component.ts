@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
     this.labs = [
       {name:"Lab 1", link:"lab1"},
       {name:"Lab 2", link:"lab2"},
-      {name:"Lab 3", link:"lab3"}
+      {name:"Lab 3", link:"lab3"},
+      {name:"Lab 4", link:"lab4"}
     ]
   }
 

@@ -11,7 +11,7 @@ namespace ProgrammingParadigms_BLL.Interfaces
         bool CheckForLL1(GrammarDTO grammar);
         Task<bool> CheckForLL1Async(GrammarDTO grammar);
 
-        (string first, string follow, bool isLL1) CheckForLL1WithDetails(GrammarDTO grammar);
-        Task<(string first, string follow, bool isLL1)> CheckForLL1WithDetailsAsync(GrammarDTO grammar);
+        (List<(string nonTerminal, List<string> firsts, string follow)> details, bool isLL1) CheckForLL1WithDetails(GrammarDTO grammar);
+        Task<(List<(string nonTerminal, List<string> firsts, string follow)> details, bool isLL1)> CheckForLL1WithDetailsAsync(GrammarDTO grammar);
     }
 }

@@ -18,6 +18,12 @@ export const environment = {
   lab3:{
     findResult:prefix+"lab3/find",
     getResult:prefix+"lab3/get"
+  },
+  lab4:{
+    findResult:prefix+"lab4/find",
+    getResult:prefix+"lab4/get",
+    findResultWithDetails:prefix+"lab4/findWithDetails",
+    getResultWithDetails:prefix+"lab4/getWithDetails",
   }
 };
 
