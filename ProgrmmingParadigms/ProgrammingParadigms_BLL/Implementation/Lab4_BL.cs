@@ -59,7 +59,7 @@ namespace ProgrammingParadigms_BLL.Implementation
                     firsts.Add(GetFirstForRule(r).Aggregate((x, y) => x + y));
                 }
 
-                var follow = GetFollow(t).Count()==0?"": GetFollow(t).Aggregate((x, y) => x + y);
+                var follow = GetFollow(t).Count() == 0 ? "" : GetFollow(t).Aggregate((x, y) => x + y);
 
                 details.Add((t, firsts, follow));
             }
@@ -69,7 +69,7 @@ namespace ProgrammingParadigms_BLL.Implementation
         }
 
 
-        bool CheckLL1ForNonTerminal(string nonTerminal)
+        private bool CheckLL1ForNonTerminal(string nonTerminal)
         {
             if (IsEpsNonTerminal(nonTerminal))
             {
@@ -176,7 +176,12 @@ namespace ProgrammingParadigms_BLL.Implementation
 
         private IEnumerable<string> GetFollow(string nonTerminal)
         {
-            var res = GetFollow(nonTerminal, new List<string>()).Where(x => x != epsilon).Distinct();
+            var res = GetFollow(nonTerminal, new List<string>()).Distinct().ToList();
+            if(!res.Contains(epsilon) && nonTerminal == "S")
+            {
+                res.Add(epsilon);
+            }
+
             return res;
         }
         private IEnumerable<string> GetFollow(string nonTerminal, ICollection<string> checkedNonTerminals)
@@ -217,11 +222,11 @@ namespace ProgrammingParadigms_BLL.Implementation
                     {
                         if (IsEpsNonTerminal(rightPart[j].ToString()))
                         {
-                            result.AddRange(GetFirstForNonTerminal(rightPart[j].ToString()));
+                            result.AddRange(GetFirstForNonTerminal(rightPart[j].ToString()).Where(x=>x!=epsilon));
                         }
                         else
                         {
-                            result.AddRange(GetFirstForNonTerminal(rightPart[j].ToString()));
+                            result.AddRange(GetFirstForNonTerminal(rightPart[j].ToString()).Where(x => x != epsilon));
                             addEndRowSymbol = false;
                             break;
                         }
@@ -235,7 +240,7 @@ namespace ProgrammingParadigms_BLL.Implementation
                 }
                 if (addEndRowSymbol)
                 {
-                    result.Add("$");
+                    result.Add(epsilon);
                     if (!checkedNonTerminals.Contains(rule.LeftPart))
                     {
                         result.AddRange(GetFollow(rule.LeftPart, checkedNonTerminals));
