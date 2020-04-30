@@ -57,7 +57,7 @@ namespace ProgrmmingParadigms.Controllers
                 if (!_tempValues.ContainsKey(key))
                     throw new Exception("Can not find value");
 
-                var result = _tempValues[key];
+                var result = await Task.Run(() => _tempValues[key]);
                 _tempValues.Remove(key);
 
                 return Ok("\"" + result + "\"");
@@ -101,7 +101,7 @@ namespace ProgrmmingParadigms.Controllers
                 if (!_tempValues.ContainsKey(key))
                     throw new Exception("Can not find value");
 
-                var result = _tempValues[key];
+                var result = await Task.Run(() => _tempValues[key]);
                 _tempValues.Remove(key);
 
                 return Ok("\"" + result + "\"");
